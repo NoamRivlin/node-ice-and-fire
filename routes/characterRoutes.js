@@ -1,6 +1,7 @@
 import express from 'express';
 import {
   getCharacterByName,
+  getCharacterByPage,
   getCharacters,
   getCharacterTitles,
 } from '../controllers/characterController.js';
@@ -8,7 +9,8 @@ import {
 const router = express.Router();
 
 router.route('/characters').get(getCharacters);
+router.route('/characters/:page/:pageSize').get(getCharacterByPage);
 router.route('/characters/name/:name').get(getCharacterByName);
-router.route('/characters/title/:name').get(getCharacterTitles);
+router.route('/characters/titles/:name').get(getCharacterTitles);
 
 export default router;
